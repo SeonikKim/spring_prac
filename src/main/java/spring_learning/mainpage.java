@@ -55,6 +55,8 @@ public class mainpage {
 		mv.addObject("pdnm",pdnm); //addObject : 키 배열 형태로 값을 저장시킴
 		mv.addObject("pcode",pcode);
 		mv.addObject("pmoney",pmoney);
+		//setView : null은 Mapping 이름과 동일한 jsp를 찾게됩니다.
+		mv.setView(null);
 		return mv;
 	}
 	
