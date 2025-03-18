@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>spring_learning</groupId>
+  <artifactId>spring_learning</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>spring_learning</name>
+  <description>spring_learning</description>
+
+<!-- 배포파일에 맞춰 압축파일 생성하는 라이브러리 -->
+	<build>
+		<plugins>
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.3.2</version>
+			</plugin>
+		</plugins>
+	</build>
+	
+<!-- 프로젝트에 필요한 각종 라이브러리 설치 목록 -->
+	<dependencies>
+	<!-- Mybatis -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.5.6</version>
+	</dependency>
+	<!-- Mybatis spring -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>2.0.6</version>
+	</dependency>
+<!-- commons-fileupload : I/O하는 라이브러리 -->
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>1.5</version>
+	</dependency>
+<!-- Lombok : DTO, VO (Getter, Setter 사용) -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.36</version>
+		<scope>provided</scope>
+	</dependency>
+<!-- JSTL : JSP + JSTL 언어를 사용하기 위한 라이브러리 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+<!-- Spring+Mysql(Model, Controller, View) Spring JDBC : Mysql 서버 접속 환경설정 라이브러리 -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>5.3.39</version>
+</dependency>
+<!-- Spring MVC -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>5.3.39</version>
+	</dependency>
+<!-- DBCP (DB Connection) - Spring, Spring-boot  -->
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>1.4</version>
+	</dependency>
+<!-- WAS (Tomcat-catalina) -->
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-catalina</artifactId>
+		<version>8.5.61</version>
+	</dependency>
+<!-- java를 web으로 사용할 수 있는 Servlet 라이브러리 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+<!-- Mysql 라이브러리 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+	</dependencies>
+<!-- 	jdk 세팅 버전 -->
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+</project>
