@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 맘대로 지어도 됨 -->
+<!-- SQL 문법에 대한 파일(mapper) -->
+<mapper namespace="apink">
+<!-- DML만 사용 가능
+<select id=""></select>
+<insert id=""></insert>
+<update id=""></update>
+<delete id=""></delete>
+ -->
+ 
+ <!-- 
+ ${} : 필드명, 테이블명, 파라미터 
+ #{} : 값을 적용시킬 때 사용하는 파라미터값(''가 자동적용 된다고 생각하면됨)
+ -->
+ <insert id="macbook_insert">
+ insert into macbok_class values (midx,class_part,class_cate,class_name,class_day,class_price,class_sales,class_info,class_teacher,class_object,class_use,today)
+ values('0',#{class_part},#{class_cate},#{class_name},#{class_day},#{class_price},#{class_sales},#{class_info},#{class_teacher},#{class_object},#{class_use},now())
+ </insert>
+ 
+ 
+
+
+</mapper>

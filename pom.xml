@@ -20,6 +20,37 @@
 	
 <!-- 프로젝트에 필요한 각종 라이브러리 설치 목록 -->
 	<dependencies>
+	<!-- slf4j (Log 출력 라이브러리) -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>2.0.17</version>
+	</dependency>
+
+	<!-- slf4j-log4j (java 또는 Controller, Model을 구현 시 결과값의 처리 정보를 출력 Log) : JDK 및 라이브러리 호출에 대한 정보 -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>2.0.17</version>
+		<type>pom</type>
+		<scope>runtime</scope>
+	</dependency>
+	<!-- slf4j-over (서버 오류 및 소켓, 포트통신일 경우 Log) -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>2.0.17</version>
+		<scope>runtime</scope>
+	</dependency>
+	<!-- log4j : console에 출력 -->
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.17</version>
+		<scope>runtime</scope>
+	</dependency>
+	
+	
 	<!-- Mybatis -->
 	<dependency>
 		<groupId>org.mybatis</groupId>
@@ -32,7 +63,7 @@
 		<artifactId>mybatis-spring</artifactId>
 		<version>2.0.6</version>
 	</dependency>
-<!-- commons-fileupload : I/O하는 라이브러리 -->
+<!-- commons-fileupload : I/O하는 라이브러리(파일업로드) -->
 	<dependency>
 		<groupId>commons-fileupload</groupId>
 		<artifactId>commons-fileupload</artifactId>

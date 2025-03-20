@@ -4,9 +4,12 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+//Spring Controller + View 기초
 
 //@Controller : 해당 일반 class를 web에서 작동할 수 있도록 변경하도록 함
 @Controller
@@ -56,8 +59,27 @@ public class mainpage {
 		mv.addObject("pcode",pcode);
 		mv.addObject("pmoney",pmoney);
 		//setView : null은 Mapping 이름과 동일한 jsp를 찾게됩니다.
-		mv.setView(null);
-		return mv;
+//		mv.setView(null);
+		
+		//Mapping과 다른 이름을 사용하고 싶을 경우
+		mv.setViewName("bbb");
+		
+		return mv; // 무조건 ModelAndView 객체명을 사용해야함
 	}
+	
+	@PostMapping("/eee.do")
+	public String eee(HttpServletRequest rq, Model m) {
+		String pdnm = rq.getParameter("pdnm");
+		String pcode = rq.getParameter("pcode");
+		String pmoney = rq.getParameter("pmoney");
+		
+		//Model(interface)을 이용하여 jsp로 값을 전달하는 방식(jstl형태로 값 출력)
+		m.addAttribute("pdnm",pdnm);
+		m.addAttribute("pcode",pcode);
+		m.addAttribute("pmoney",pmoney);
+		return "ddd";
+	}
+	
+	
 	
 }

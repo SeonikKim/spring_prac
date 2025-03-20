@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Spring 파일전송</title>
+</head>
+<body>
+<form action="./fileok.do" method="post" id="frm" enctype="multipart/form-data">
+첨부파일 : <input type="file" name="mfile"><br>
+<input type="button" value="전송" onclick="ok()">
+</form>
+<br><br><br><br>
+<form action="./fileok2.do" method="post" id="frm2" enctype="multipart/form-data">
+첨부파일 멀티
+첨부파일 : 
+<input type="file" name="mfile" multiple="multiple"><br>
+<!-- 아래와 같이 받아도 배열로 처리되기 때문에 java코드 수정 필요 X, 하지만 java에서 조건 걸어서 값 없는건 거르고 받아야함 ..
+<input type="file" name="mfile"><br>
+<input type="file" name="mfile"><br>
+<input type="file" name="mfile"><br>
+ -->
+<input type="button" value="전송" onclick="ok2()">
+
+</form>
+
+</body>
+<script>
+function ok(){
+	frm.submit();
+}
+function ok2(){
+	frm2.submit();
+}
+</script>
+</html>
