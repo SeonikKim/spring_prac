@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace 맘대로 지어도 됨 -->
+<!-- namespace : 패키지명.자바파일명 -->
 <!-- SQL 문법에 대한 파일(mapper) -->
-<mapper namespace="apink">
+<mapper namespace="spring_learning.macbook_mapper">
 <!-- DML만 사용 가능
 <select id=""></select>
 <insert id=""></insert>
@@ -14,12 +14,40 @@
  ${} : 필드명, 테이블명, 파라미터 
  #{} : 값을 적용시킬 때 사용하는 파라미터값(''가 자동적용 된다고 생각하면됨)
  -->
- <insert id="macbook_insert">
- insert into macbok_class values (midx,class_part,class_cate,class_name,class_day,class_price,class_sales,class_info,class_teacher,class_object,class_use,today)
- values('0',#{class_part},#{class_cate},#{class_name},#{class_day},#{class_price},#{class_sales},#{class_info},#{class_teacher},#{class_object},#{class_use},now())
- </insert>
+<insert id="macbook_insert">
+    insert into macbook_class (
+        midx,class_part, class_cate, class_name, class_day,
+        class_price, class_sales, class_info, class_teacher,
+        class_object, class_use, today
+    )
+    values (
+        '0',#{class_part}, #{class_cate}, #{class_name}, #{class_day},
+        #{class_price}, #{class_sales}, #{class_info}, #{class_teacher},
+        #{class_object}, #{class_use}, now()
+    )
+</insert>
+<!-- select는 resultType을 사용해야함, config.xml에 세팅된 alias를 이용하여 model DTO에 이관 -->
+<!-- 과정 전체의 리스트 데이터 -->
+ <select id="macbook_select" resultType="macbookdto">
+ select * from macbook_class order by midx desc
+ </select>
  
+ <!-- 과정 업데이트(수정) -->
+ <update id="macbook_update">
+ update macbook_class set class_part=#{class_part},class_cate=#{class_cate},class_name=#{class_name},class_day=#{class_day},class_price=#{class_price},class_sales=#{class_sales},
+ class_info=#{class_info},class_teacher=#{class_teacher},class_object=#{class_object},class_use=#{class_use} where midx = #{midx}
+  
+ </update>
  
+ <!-- 과정 하나의 데이터 -->
+ <select id="macbook_one" resultType="macbookdto" parameterType="String"> 
+ select * from macbook_class where midx=#{midx}
+ </select>
+ 
+ <!-- 과정 삭제(자료형 int로 처리하는 방식(mapper.java도 int니까 ~ )) -->
+ <delete id="macbook_delete" parameterType="int">
+ delete from macbook_class where midx=#{midx}
+ </delete>
 
-
+ 
 </mapper>

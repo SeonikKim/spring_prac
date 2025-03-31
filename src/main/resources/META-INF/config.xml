@@ -2,8 +2,20 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- DTO, VO를 연결해주는 역할(Controller, Model에서 사용 가능) -->
 <configuration>
+<!-- Mybatis 및 SQL 실행환경 외의 코드 오류 시 Log 확인 -->
+<settings>
+<setting name="cacheEnabled" value="false"/><!-- Mybatis 실행 시 cache를 활용하는 기능 종료(캐시메모리 관리를 위해 false) -->
+<setting name="useGeneratedKeys" value="true"/><!-- auto_increment에 대한 생성값을 가져옴(MySQL만 사용 다른 db는 false) -->
+<setting name="defaultExecutorType" value="REUSE"/><!-- properties를 기본설정 + REUSE(PreparedStatement), 기본은 NULL, default, BATCH 등도 사용함 궁금하면 검색 ㄱ -->
+<setting name="jdbcTypeForNull" value="NULL"/><!-- NULL : NULL값이 있을 경우 에러가 발생되는 상황 확인 -->
+<setting name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/><!-- log Interface를 기본으로 모든 클래스에 자동 장착 -->
+</settings>
+
+<!-- ***새로운 DTO가 있을 경우에만 사용하는 XML입니다!!!!!!!!! -->
 <!-- 	alias : 별칭, type : 패키지와 클래스명을 사용해야함 -->
 	<typeAliases>
 	<typeAlias alias="macbookdto" type="spring_learning.macbook_DTO"/>
+	<typeAlias alias="memberdto" type="spring_learning.macbook_member_DTO"/>
+	<typeAlias alias="banner_DTO" type="spring_learning.banner_DTO"/>
 	</typeAliases>
 </configuration>

@@ -20,6 +20,47 @@
 	
 <!-- 프로젝트에 필요한 각종 라이브러리 설치 목록 -->
 	<dependencies>
+	
+	<!-- Activation -->
+<dependency>
+    <groupId>javax.activation</groupId>
+    <artifactId>activation</artifactId>
+    <version>1.1.1</version>
+</dependency>
+	<!-- Mail-API(Compact) -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version>
+</dependency>
+	<!-- Mail-API -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.4.7</version>
+</dependency>
+
+
+	<!-- json simple -->
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1.1</version>
+</dependency>
+	<!-- json in java -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20250107</version>
+</dependency>
+	<!-- Spring,Spring-boot에서 DB관련 id를 의존성주입하기위해서 사용하는 라이브러리(Inject)(의존성 주입 라이브러리) -->
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+	</dependency>
+	
+	
 	<!-- slf4j (Log 출력 라이브러리) -->
 	<dependency>
 		<groupId>org.slf4j</groupId>

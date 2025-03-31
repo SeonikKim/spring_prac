@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개인정보 확인(API를 이용한 데이터 출력)</title>
+<style>
+div{display: flex;
+}
+</style>
+</head>
+
+<body>
+<div>
+아이디 : <div id="mid"></div><br>
+</div>
+<div>
+이름 : <div id="mname"></div><br>
+</div>
+<div>
+이메일 : <div id="memail"></div><br>
+</div>
+<div>
+지역 : <div id="marea"></div><br>
+</div>
+<div>
+전화번호 : <div id="mphone"></div><br>
+</div>
+
+</body>
+<script>
+var http,data;
+http= new XMLHttpRequest();
+http.onreadystatechange = function() {
+	if(http.readyState==4 && http.status==200){
+		//JSON.parse : API에서 받은 문자열을 배열화해주는 함수 
+		data=(JSON.parse(this.response));
+		view();//전역변수 태워서 인자값 생략함
+	}
+}
+http.open("GET","./api_data3.do",false);
+http.send();
+
+function view(){//전역변수 태워서 인자값 생략함
+	console.log(data);
+document.getElementById("mid").innerText = data["myinfo"][0]["id"];
+document.getElementById("mname").innerText = data["myinfo"][0]["name"];
+document.getElementById("memail").innerText = data["myinfo"][0]["email"];
+document.getElementById("marea").innerText = data["myinfo"][0]["area"];
+document.getElementById("mphone").innerText = data["myinfo"][0]["phone"];
+}
+</script>
+</html>

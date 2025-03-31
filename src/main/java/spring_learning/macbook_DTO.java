@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 
 public class macbook_DTO {
-	int midx, class_price, class_sales;
-	String class_part,class_cate,class_name,class_day,class_info,class_teacher,class_object,class_use,today;
+	int midx, class_day,class_price, class_sales;
+	String class_part,class_cate,class_name,class_info,class_teacher,class_object,class_use,today;
 	
 }
